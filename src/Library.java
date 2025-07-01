@@ -47,15 +47,15 @@ public class Library {
         }
     }
 
-    public boolean loginUser(String email, String password){
+    public User loginUser(String email, String password){
         for (User user:users){
             if (user.getEmail().equals(email) &&
                     user.getPassword().equals(password)){
                 System.out.println("Login successful");
-                return true;
+                return user;
             }
         }
-        return false;
+        return null;
     }
     public Librarian loginLibrarian(int id, String password){
         for (Librarian lib:librarians){

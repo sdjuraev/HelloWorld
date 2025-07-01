@@ -6,6 +6,7 @@ public class Book {
     private String bookTitle;
     private String author;
     private boolean status;
+    private User user;
 
     public Book(int id, String bookTitle, String author,  String category, boolean status){
         this.id = id;
@@ -64,7 +65,5 @@ public class Book {
     public int getId() {
         return id;
     }
-    public void newFunction(){
-        System.out.println("Hello World");
-    }
+
 }

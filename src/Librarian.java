@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Librarian extends Library{
+public class Librarian {
     private int employeeID;
     private String password;
     private Library library;
