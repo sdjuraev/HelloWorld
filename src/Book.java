@@ -64,4 +64,7 @@ public class Book {
     public int getId() {
         return id;
     }
+    public void newFunction(){
+        System.out.println("Hello World");
+    }
 }
