@@ -5,15 +5,12 @@ public class Book {
     private int id;
     private String bookTitle;
     private String author;
-    private String category;
     private boolean status;
 
     public Book(int id, String bookTitle, String author,  String category, boolean status){
         this.id = id;
         this.bookTitle = bookTitle;
         this.author = author;
-
-        this.category = category;
         this.status = status;
     }
     public boolean isAvailable(){
@@ -59,11 +56,6 @@ public class Book {
         return author;
     }
 
-
-
-    public String getCategory() {
-        return category;
-    }
 
     public boolean isStatus() {
         return status;
