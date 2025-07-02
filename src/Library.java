@@ -74,4 +74,13 @@ public class Library {
     public ArrayList<User> getUsers() {
         return users;
     }
+
+    public ArrayList<Loan> getLoans() {
+        return loans;
+    }
+    public void printBorrowedBooks(){
+        for (Loan loan:loans){
+            System.out.println(loan.getUser().getEmail() +": "+ loan.getBook().getBookTitle() +" " + loan.getIssueDate().toString() +" "+ loan.getDueDate().toString());
+        }
+    }
 }

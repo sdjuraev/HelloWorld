@@ -1,8 +1,9 @@
+import java.time.LocalDate;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-       Loan loan = new Loan();
+
        Library library = new Library();
        Librarian librarian = new Librarian(1111, "pass", library);
        User user = new User(111, "John", "john@", "pass");
@@ -105,9 +106,19 @@ public class Main {
                          break;
                       case 2:
                          System.out.print("Enter Book Title");
+                         scanner.nextLine();
                          bookTitle = scanner.nextLine();
                          Book found = library.searchBook(bookTitle);
-                         loan.addNewEnter(found, user1);
+                         if (found!=null){
+                            System.out.println("How many days do you want?");
+                            int days = scanner.nextInt();
+                            LocalDate issueDate = LocalDate.now();
+                            LocalDate dueDate = LocalDate.now().plusDays(days);
+                            Loan loan = new Loan(issueDate,dueDate,null,user1,found);
+                            library.getLoans().add(loan);
+                         }
+                         library.printBorrowedBooks();
+
                    }
                 }
                 break;
