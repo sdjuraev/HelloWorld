@@ -110,12 +110,17 @@ public class Main {
                          bookTitle = scanner.nextLine();
                          Book found = library.searchBook(bookTitle);
                          if (found!=null){
-                            System.out.println("How many days do you want?");
-                            int days = scanner.nextInt();
-                            LocalDate issueDate = LocalDate.now();
-                            LocalDate dueDate = LocalDate.now().plusDays(days);
-                            Loan loan = new Loan(issueDate,dueDate,null,user1,found);
-                            library.getLoans().add(loan);
+                            if (found.isAvailable()) {
+                               System.out.println("How many days do you want?");
+                               int days = scanner.nextInt();
+                               LocalDate issueDate = LocalDate.now();
+                               LocalDate dueDate = LocalDate.now().plusDays(days);
+                               found.issue(found.getId(),library.getBooks());
+                               Loan loan = new Loan(issueDate, dueDate, null, user1, found);
+                               library.getLoans().add(loan);
+                            }else {
+                               System.out.println("Book Borrowed Already");
+                            }
                          }
                          library.printBorrowedBooks();
 

@@ -80,7 +80,7 @@ public class Library {
     }
     public void printBorrowedBooks(){
         for (Loan loan:loans){
-            System.out.println(loan.getUser().getEmail() +": "+ loan.getBook().getBookTitle() +" " + loan.getIssueDate().toString() +" "+ loan.getDueDate().toString());
+            System.out.println(loan.getLoadID()+""+loan.getUser().getEmail() +": "+ loan.getBook().getBookTitle() +" " + loan.getIssueDate().toString() +" "+ loan.getDueDate().toString()+" "+loan.getBook().isStatus());
         }
     }
 }
